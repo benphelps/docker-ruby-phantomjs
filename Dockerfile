@@ -2,7 +2,11 @@ FROM ruby:2.3.3
 
 ENV PHANTOM_JS="phantomjs-2.1.1-linux-x86_64"
 
-RUN apt-get update && \
+RUN echo 'deb http://mozilla.debian.net/ jessie-backports firefox-release' >> /etc/apt/sources.list.d/debian-mozilla.list && \
+    wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb && \
+    dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb && \
+    rm pkg-mozilla-archive-keyring_1.1_all.deb && \
+    apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y xvfb firefox rsync locales build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x && \
     curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 && \
