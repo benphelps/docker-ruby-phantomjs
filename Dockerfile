@@ -8,7 +8,7 @@ RUN echo 'deb http://mozilla.debian.net/ jessie-backports firefox-release' >> /e
     rm pkg-mozilla-archive-keyring_1.1_all.deb && \
     apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y xvfb firefox rsync locales build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x && \
+    apt-get install -y cmake xvfb firefox rsync locales build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x && \
     curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 && \
     tar xvjf $PHANTOM_JS.tar.bz2 && \
     mv $PHANTOM_JS /usr/local/share && \
