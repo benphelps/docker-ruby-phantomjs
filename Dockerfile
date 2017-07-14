@@ -18,7 +18,9 @@ RUN echo 'deb http://security.debian.org/ jessie/updates main' >> /etc/apt/sourc
     tar zxf geckodriver-v0.14.0-linux64.tar.gz && \
     cp geckodriver /usr/local/bin/geckodriver && \
     chmod +x /usr/local/bin/geckodriver && \
-    rm geckodriver-v0.14.0-linux64.tar.gz
+    rm geckodriver-v0.14.0-linux64.tar.gz && \
+    gem update --system && \
+    gem install bundler
 
 RUN sed -i "s/^#\ \+\(en_US.UTF-8\)/\1/" /etc/locale.gen
 RUN locale-gen en_US.UTF-8
